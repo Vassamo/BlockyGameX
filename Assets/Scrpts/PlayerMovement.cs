@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        
+
 
         if (IsGrounded() && Input.GetButtonDown("Jump"))
         {
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
             if (jumpTime > 0)
             {
                 rb.velocity = Vector2.up * jumpForce;
-                
+
                 jumpTime -= Time.deltaTime;
             }
             else

@@ -11,7 +11,7 @@ public class camerafol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newCameraPosition = new Vector3(hero.transform.position.x, transform.position.y, transform.position.z);
+        Vector3 newCameraPosition = new Vector3(hero.transform.position.x, hero.transform.position.y + 1f, transform.position.z);
         transform.position = Vector3.SmoothDamp(transform.position, newCameraPosition, ref currentVel, smoothTime);
     }
 }
