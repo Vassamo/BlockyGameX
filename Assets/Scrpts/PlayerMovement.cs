@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = Input.GetAxis("Horizontal");
         FaceMoveDirection();
-        Jump();
+        //Jump();
         //Debug.Log(moveInput);
 
 
