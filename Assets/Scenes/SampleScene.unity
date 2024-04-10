@@ -152,7 +152,7 @@ MonoBehaviour:
   _audioSource: {fileID: 519420034}
   _intervals:
   - _steps: 1
-    _delayInBeats: 0.2
+    _delayInBeats: 0.3
     _trigger:
       m_PersistentCalls:
         m_Calls:
@@ -643,8 +643,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a75e448564fa2194a8c7559871c82d57, type: 3}
-  m_Resource: {fileID: 8300000, guid: a75e448564fa2194a8c7559871c82d57, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6c932e6926a811945a1120c6d5abafb1, type: 3}
+  m_Resource: {fileID: 8300000, guid: 6c932e6926a811945a1120c6d5abafb1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
