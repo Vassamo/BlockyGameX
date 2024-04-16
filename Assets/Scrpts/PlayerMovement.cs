@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTime;
     private bool isJumping;
 
+    
+
     [SerializeField] float fallmultipier;
     Vector2 vecgravity;
 
@@ -38,8 +40,6 @@ public class PlayerMovement : MonoBehaviour
         FaceMoveDirection();
         //Jump();
         //Debug.Log(moveInput);
-
-
     }
 
     void FixedUpdate()
@@ -50,10 +50,10 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
 
-
+        
         if (IsGrounded() && Input.GetButtonDown("Jump"))
         {
-
+            
             isJumping = true;
             jumpTime = jumpStartTime;
             rb.velocity = Vector2.up * jumpForce;

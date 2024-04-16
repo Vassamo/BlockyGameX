@@ -9,6 +9,8 @@ public class Jumpscr : MonoBehaviour
     [SerializeField] float fallmultipier;
     [SerializeField] float jumpMultiplier;
 
+    public AudioSource playjump;
+
     public Transform groundcheck;
     public LayerMask groundLayer;
     Vector2 vecgravity;
@@ -35,6 +37,7 @@ public class Jumpscr : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
+            playjump.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumppower);
             isJumping = true;
             jumpCounter = 0;
