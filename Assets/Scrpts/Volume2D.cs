@@ -13,12 +13,14 @@ public class Volume2D : MonoBehaviour
     {
         CircleCollider2D = GetComponent<CircleCollider2D>();
         maxDist = CircleCollider2D.radius;
+        audioSourceRadio.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D gracz)
     {
         if (audioSourceRadio.isPlaying == false)
         {
+            audioSourceRadio.enabled = enabled;
             //audioSourceRadio.PlayDelayed(Random.Range(1,3));
             audioSourceRadio.time = (Random.Range(1, 30));
             audioSourceRadio.Play();
@@ -57,6 +59,7 @@ public class Volume2D : MonoBehaviour
     {
         audioSourceRadio.Stop();
         Debug.Log("stop");
+        audioSourceRadio.enabled = false;
     }
 
     private void OnDrawGizmosSelected()

@@ -1077,6 +1077,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d10f18bdb49344693507290f111c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowMotionDuration: 4
+  transitionDuration: 1
+  MasterMixer: {fileID: 24100000, guid: 2108e2380fa25024c851d976f0958cf4, type: 2}
 --- !u!1 &839902291
 GameObject:
   m_ObjectHideFlags: 0
