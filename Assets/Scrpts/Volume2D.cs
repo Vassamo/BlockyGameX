@@ -5,7 +5,7 @@ public class Volume2D : MonoBehaviour
 {
     public Transform listenerTransform;
     public AudioSource audioSourceRadio;
-    public AudioMixerGroup radioMixerGroup;
+    //public AudioMixerGroup radioMixerGroup;
     public AudioMixerGroup bgMusicMixerGroup;
     public int DuckValue = 40; 
     private CircleCollider2D circleCollider2D;
