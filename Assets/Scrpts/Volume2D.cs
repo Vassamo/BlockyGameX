@@ -11,7 +11,7 @@ public class Volume2D : MonoBehaviour
 
     private void Awake()
     {
-        CircleCollider2D = GetComponent<CircleCollider2D>();
+        CircleCollider2D = GetComponent<CircleCollider2D>(); //scale broken bdw
         maxDist = CircleCollider2D.radius;
         audioSourceRadio.enabled = false;
     }

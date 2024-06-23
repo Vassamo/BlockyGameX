@@ -13,6 +13,7 @@ public class Jumpscr : MonoBehaviour
 
     public Transform groundcheck;
     public LayerMask groundLayer;
+    private string jumpSTR = "Jump";
     Vector2 vecgravity;
 
     bool isJumping;
@@ -35,7 +36,7 @@ public class Jumpscr : MonoBehaviour
         {rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 37f);}
 
 
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        if (Input.GetButtonDown(jumpSTR) && isGrounded())
         {
             playjump.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumppower);
@@ -73,7 +74,7 @@ public class Jumpscr : MonoBehaviour
         }
 
 
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetButtonUp(jumpSTR))
         {
             isJumping = false;
             jumpCounter = 0;
