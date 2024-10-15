@@ -16,9 +16,7 @@ public class FeetKiller : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("omg");
-            // Zniknięcie przeciwnika
-
+            Debug.Log("przeciwnik pokonany");
             Bounce();
             deathSound.Play();
             Destroy(other.transform.parent.gameObject);

@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -20,9 +18,9 @@ public class EnemyKillPlayer : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("gracz zostal rozkurwiony na amen");
+            Debug.Log("przegrales :(");
             playerDeath.Play();
-            allmusic.audioMixer.SetFloat("BgMusicVolume",-6);
+            allmusic.audioMixer.SetFloat("BgMusicVolume",-9);
             StartCoroutine(PrzykładKorutyny());
         }
     }
