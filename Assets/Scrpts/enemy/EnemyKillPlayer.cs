@@ -9,9 +9,11 @@ public class EnemyKillPlayer : MonoBehaviour
     public AudioSource playerDeath;
     public AudioMixerGroup allmusic;
     float liczbaSekund = 4f;
+    float startBgMusicVol;
     void Start()
     {
         killerRange = GetComponent<Collider2D>();
+        allmusic.audioMixer.GetFloat("BgMusicVolume", out startBgMusicVol);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,7 +22,7 @@ public class EnemyKillPlayer : MonoBehaviour
         {
             Debug.Log("przegrales :(");
             playerDeath.Play();
-            allmusic.audioMixer.SetFloat("BgMusicVolume",-9);
+            allmusic.audioMixer.SetFloat("BgMusicVolume",-19);
             StartCoroutine(PrzykładKorutyny());
         }
     }
@@ -32,6 +34,7 @@ public class EnemyKillPlayer : MonoBehaviour
         // Kod do wykonania po odczekaniu
         Debug.Log("restart");
         Time.timeScale = 1;
+        allmusic.audioMixer.SetFloat("BgMusicVolume", startBgMusicVol);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
