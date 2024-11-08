@@ -13,6 +13,7 @@ public class Abilities : MonoBehaviour
     private bool isEndingSlowMotion = false;
 
     public AudioMixer MasterMixer;
+    
 
     private void Start()
     {
@@ -82,5 +83,10 @@ public class Abilities : MonoBehaviour
         MasterMixer.SetFloat("MasterFilter", 20000); // Powrót do oryginalnej wartoœci filtra
         isEndingSlowMotion = false;
         transitionTimer = 0f; // Resetowanie timera
+    }
+
+    private void UnderWaterOn()
+    {
+
     }
 }
