@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: atlas lol
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+    - {fileID: 2800000, guid: b3ff9cab2cb41d146bf83c8b4b7a6081, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - b3ff9cab2cb41d146bf83c8b4b7a6081: -1617949962
+    - b3ff9cab2cb41d146bf83c8b4b7a6081: -1003681805
+    - b3ff9cab2cb41d146bf83c8b4b7a6081: -1379007273
+    - b3ff9cab2cb41d146bf83c8b4b7a6081: -1952380994
+    - b3ff9cab2cb41d146bf83c8b4b7a6081: 944230541
+    - b3ff9cab2cb41d146bf83c8b4b7a6081: 327518476
+    - b3ff9cab2cb41d146bf83c8b4b7a6081: 664930654
+    - 1130cb8ea4554fa4c87deb8779578e0c: -979113606
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1127009331
+    - 1130cb8ea4554fa4c87deb8779578e0c: 28083512
+    - 1130cb8ea4554fa4c87deb8779578e0c: 26057233
+    - 1130cb8ea4554fa4c87deb8779578e0c: 2042742674
+    - 1130cb8ea4554fa4c87deb8779578e0c: 341160522
+    - 1130cb8ea4554fa4c87deb8779578e0c: 901917885
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1537242054
+    - 1130cb8ea4554fa4c87deb8779578e0c: 1631063551
+    - 1130cb8ea4554fa4c87deb8779578e0c: 1048512680
+    - 1130cb8ea4554fa4c87deb8779578e0c: 994015764
+    - 1130cb8ea4554fa4c87deb8779578e0c: -450302085
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1189598382
+    - 1130cb8ea4554fa4c87deb8779578e0c: 675074630
+    - 1130cb8ea4554fa4c87deb8779578e0c: 437804557
+    - 1130cb8ea4554fa4c87deb8779578e0c: 1403570439
+    - 1130cb8ea4554fa4c87deb8779578e0c: 1809959813
+    - 1130cb8ea4554fa4c87deb8779578e0c: 225842671
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1182776161
+    - 1130cb8ea4554fa4c87deb8779578e0c: 911231770
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1966360712
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1025314752
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1862550394
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1597597562
+    - 1130cb8ea4554fa4c87deb8779578e0c: 63017381
+    - 1130cb8ea4554fa4c87deb8779578e0c: 923058683
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1498478449
+    - 1130cb8ea4554fa4c87deb8779578e0c: 273411906
+    - 1130cb8ea4554fa4c87deb8779578e0c: 706864696
+    - 1130cb8ea4554fa4c87deb8779578e0c: 666524613
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1785548798
+    - 1130cb8ea4554fa4c87deb8779578e0c: 786900547
+    - 1130cb8ea4554fa4c87deb8779578e0c: 958660629
+    - 1130cb8ea4554fa4c87deb8779578e0c: 337549658
+    - 1130cb8ea4554fa4c87deb8779578e0c: -918748023
+    - 1130cb8ea4554fa4c87deb8779578e0c: -1992193517
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1617949962, guid: b3ff9cab2cb41d146bf83c8b4b7a6081, type: 3}
+  - {fileID: -1003681805, guid: b3ff9cab2cb41d146bf83c8b4b7a6081, type: 3}
+  - {fileID: -1379007273, guid: b3ff9cab2cb41d146bf83c8b4b7a6081, type: 3}
+  - {fileID: -1952380994, guid: b3ff9cab2cb41d146bf83c8b4b7a6081, type: 3}
+  - {fileID: 944230541, guid: b3ff9cab2cb41d146bf83c8b4b7a6081, type: 3}
+  - {fileID: 327518476, guid: b3ff9cab2cb41d146bf83c8b4b7a6081, type: 3}
+  - {fileID: 664930654, guid: b3ff9cab2cb41d146bf83c8b4b7a6081, type: 3}
+  - {fileID: -979113606, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1127009331, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 28083512, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 26057233, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 2042742674, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 341160522, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 901917885, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1537242054, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 1631063551, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 1048512680, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 994015764, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -450302085, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1189598382, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 675074630, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 437804557, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 1403570439, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 1809959813, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 225842671, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1182776161, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 911231770, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1966360712, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1025314752, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1862550394, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1597597562, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 63017381, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 923058683, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1498478449, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 273411906, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 706864696, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 666524613, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1785548798, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 786900547, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 958660629, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: 337549658, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -918748023, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  - {fileID: -1992193517, guid: 1130cb8ea4554fa4c87deb8779578e0c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Forest TileSet Pixel Art Objects #1 128x128_0
+  - Forest TileSet Pixel Art Objects #1 128x128_1
+  - Forest TileSet Pixel Art Objects #1 128x128_2
+  - Forest TileSet Pixel Art Objects #1 128x128_3
+  - Forest TileSet Pixel Art Objects #1 128x128_4
+  - Forest TileSet Pixel Art Objects #1 128x128_5
+  - Forest TileSet Pixel Art Objects #1 128x128_6
+  - Forest TileSet Pixel Art #1 128x128_31
+  - Forest TileSet Pixel Art #1 128x128_30
+  - Forest TileSet Pixel Art #1 128x128_33
+  - Forest TileSet Pixel Art #1 128x128_32
+  - Forest TileSet Pixel Art #1 128x128_35
+  - Forest TileSet Pixel Art #1 128x128_34
+  - Forest TileSet Pixel Art #1 128x128_0
+  - Forest TileSet Pixel Art #1 128x128_1
+  - Forest TileSet Pixel Art #1 128x128_2
+  - Forest TileSet Pixel Art #1 128x128_3
+  - Forest TileSet Pixel Art #1 128x128_4
+  - Forest TileSet Pixel Art #1 128x128_5
+  - Forest TileSet Pixel Art #1 128x128_6
+  - Forest TileSet Pixel Art #1 128x128_7
+  - Forest TileSet Pixel Art #1 128x128_8
+  - Forest TileSet Pixel Art #1 128x128_9
+  - Forest TileSet Pixel Art #1 128x128_13
+  - Forest TileSet Pixel Art #1 128x128_12
+  - Forest TileSet Pixel Art #1 128x128_11
+  - Forest TileSet Pixel Art #1 128x128_10
+  - Forest TileSet Pixel Art #1 128x128_26
+  - Forest TileSet Pixel Art #1 128x128_17
+  - Forest TileSet Pixel Art #1 128x128_27
+  - Forest TileSet Pixel Art #1 128x128_16
+  - Forest TileSet Pixel Art #1 128x128_24
+  - Forest TileSet Pixel Art #1 128x128_15
+  - Forest TileSet Pixel Art #1 128x128_25
+  - Forest TileSet Pixel Art #1 128x128_14
+  - Forest TileSet Pixel Art #1 128x128_22
+  - Forest TileSet Pixel Art #1 128x128_23
+  - Forest TileSet Pixel Art #1 128x128_20
+  - Forest TileSet Pixel Art #1 128x128_19
+  - Forest TileSet Pixel Art #1 128x128_21
+  - Forest TileSet Pixel Art #1 128x128_18
+  - Forest TileSet Pixel Art #1 128x128_28
+  - Forest TileSet Pixel Art #1 128x128_29
+  m_RenderDataMap: {}
+  m_Tag: atlas lol
+  m_IsVariant: 0
