@@ -84,9 +84,4 @@ public class Abilities : MonoBehaviour
         isEndingSlowMotion = false;
         transitionTimer = 0f; // Resetowanie timera
     }
-
-    private void UnderWaterOn()
-    {
-
-    }
 }

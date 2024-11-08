@@ -87,6 +87,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 6404426505975998080}
+  - {fileID: -5100123089489047283}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -116,6 +117,24 @@ AudioMixerEffectController:
     m_GUID: f0e8ba9e1ddb8574594dbe71aa8dcff0
   - m_ParameterName: Sidechain Mix
     m_GUID: 42b772aa9cdec09498730559ad684c91
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-5100123089489047283
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: b63a2d06b7f3bdc42b4caff3506ef5c7
+  m_EffectName: Lowpass
+  m_MixLevel: 7d86230793142574383e59feced67331
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 41286793d1e296b43af15b051ada970b
+  - m_ParameterName: Resonance
+    m_GUID: 5730c0c2c3eb13e4f8fe8a082dd5fc79
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
@@ -238,6 +257,8 @@ AudioMixerController:
     name: MasterFilter
   - guid: b837f6e2ec55ec84bbe97fd97759abe8
     name: BgMusicVolume
+  - guid: 41286793d1e296b43af15b051ada970b
+    name: MusicFilter
   m_AudioMixerGroupViews:
   - guids:
     - c9fd9dc6c7cf35e4a90b9ec94f264e4c
@@ -302,6 +323,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: 7024e3244d0825543863f5c04f0cd095
   m_FloatValues:
     19fd2b43afda37542872d84cbe85ecc0: -12.722964
+    41286793d1e296b43af15b051ada970b: 22000
     63fc95b493fd2c74ea91010a51a95c9d: 3.2656894
     b84c1c485acbbf449ad3d9fa6ede448f: 22000
     3439e2099cbd13348a226a5bbeefdde8: -6.133707
@@ -310,7 +332,9 @@ AudioMixerSnapshotController:
     eee48f2c65955b64da9cfc97e1c31038: 0
     8b20556cee16f114b908e6755cd4a489: 0
     35a4f76cd5990d1408d520bcdf55438a: 0.2
+    e9b28b7cfbace304786f131deecb44c4: 0.028543867
     6629fc0d47cad6348be656afb26b1581: 1.4306147
+    55a3128df5bd57541a9d710d4940e2d1: -1.7612991
     e127a07efdc023b41a6218a9630e89de: -19.255655
     487bb14fbeca0144d906500029495e33: -64.2
   m_TransitionOverrides: {}
