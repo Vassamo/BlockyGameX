@@ -88,6 +88,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: 6404426505975998080}
   - {fileID: -5100123089489047283}
+  - {fileID: -6306017377546559377}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -117,6 +118,24 @@ AudioMixerEffectController:
     m_GUID: f0e8ba9e1ddb8574594dbe71aa8dcff0
   - m_ParameterName: Sidechain Mix
     m_GUID: 42b772aa9cdec09498730559ad684c91
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-6306017377546559377
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8d62967d9f43587469d3c526037718cb
+  m_EffectName: Highpass
+  m_MixLevel: 3f66a32801449144ab827de0ceaaf12d
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 7bf39997674c3194abb399e9b80d6d20
+  - m_ParameterName: Resonance
+    m_GUID: f9aef85ad9a62014eab80f9c9fa0baa6
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
@@ -257,6 +276,8 @@ AudioMixerController:
     name: MasterFilter
   - guid: b837f6e2ec55ec84bbe97fd97759abe8
     name: BgMusicVolume
+  - guid: 7bf39997674c3194abb399e9b80d6d20
+    name: BGHighPass
   - guid: 41286793d1e296b43af15b051ada970b
     name: MusicFilter
   m_AudioMixerGroupViews:
@@ -325,8 +346,9 @@ AudioMixerSnapshotController:
     19fd2b43afda37542872d84cbe85ecc0: -12.722964
     41286793d1e296b43af15b051ada970b: 22000
     63fc95b493fd2c74ea91010a51a95c9d: 3.2656894
+    7bf39997674c3194abb399e9b80d6d20: 10
     b84c1c485acbbf449ad3d9fa6ede448f: 22000
-    3439e2099cbd13348a226a5bbeefdde8: -6.133707
+    3439e2099cbd13348a226a5bbeefdde8: -11.508787
     188e13ca049a0ce48b4bf4f55254963f: 8.8
     40efcaabb9bc0414d9326567260dd71b: 0.124
     eee48f2c65955b64da9cfc97e1c31038: 0
