@@ -1074,6 +1074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587677585}
   - component: {fileID: 587677586}
+  - component: {fileID: 587677587}
   m_Layer: 0
   m_Name: audioZoneManager
   m_TagString: Untagged
@@ -1108,16 +1109,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1790d1fd1c43d784b9b97527af46cc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsX:
-  - x1: 4.86
-    x2: 10.17
+  points:
+  - x1: 4.89
+    x2: 10.13
     source1: {fileID: 1366977874}
     source2: {fileID: 1163001684}
+  playerTransform: {fileID: 671426140}
+--- !u!114 &587677587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587677584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfcc2c260eecab4d9c35583c0b08e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   pointsY:
-  - y1: 3.57
-    y2: 9.7
+  - y1: 3.69
+    y2: 9.61
     audioSources: []
-    EndingVolumeDB: 8.54
+    EndingVolumeDB: 9.04
     EndingFilter: 500
   playerTransform: {fileID: 671426140}
   MusicBgMixer: {fileID: -7153761375210933222, guid: 2108e2380fa25024c851d976f0958cf4, type: 2}
@@ -28453,7 +28467,7 @@ Tilemap:
       - {fileID: 21300000, guid: bd72032a0b65ff54f9d1268a39c1bec9, type: 3}
       - {fileID: 21300000, guid: 1b610eeee61fe494c8f0cc4988207ec0, type: 3}
       - {fileID: 21300000, guid: 7b0cad558bf61134a880089242816787, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 24, y: -3, z: 0}
