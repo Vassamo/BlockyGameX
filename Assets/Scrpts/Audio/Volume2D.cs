@@ -7,10 +7,11 @@ public class Volume2D : MonoBehaviour
     public AudioSource audioSourceRadio;
     //public AudioMixerGroup radioMixerGroup;
     public AudioMixerGroup bgMusicMixerGroup;
-    public int DuckValue = 40; 
+    public float DuckValue = 40; 
     private CircleCollider2D circleCollider2D;
     public float minDist = 1;
     static float maxDist;
+    private string ParamName = "BgMusicVolumeRadio";
 
     private void Awake()
     {
@@ -37,12 +38,12 @@ public class Volume2D : MonoBehaviour
         if (dist < minDist)
         {
             audioSourceRadio.volume = 1;
-            bgMusicMixerGroup.audioMixer.SetFloat("BgMusicVolume", -DuckValue); // Mute background music
+            bgMusicMixerGroup.audioMixer.SetFloat(ParamName, -DuckValue); // Mute background music
         }
         else if (dist > maxDist)
         {
             audioSourceRadio.volume = 0;
-            bgMusicMixerGroup.audioMixer.SetFloat("BgMusicVolume", 0); // Max volume for background music
+            bgMusicMixerGroup.audioMixer.SetFloat(ParamName, 0); // Max volume for background music
         }
         else
         {
@@ -52,7 +53,7 @@ public class Volume2D : MonoBehaviour
             // Calculate volume value based on the distance in the range from minDist to maxDist
             float distval = rangeDist / (maxDist - minDist);
             audioSourceRadio.volume = 1 - distval;
-            bgMusicMixerGroup.audioMixer.SetFloat("BgMusicVolume", Mathf.Lerp(-DuckValue, 0, distval));
+            bgMusicMixerGroup.audioMixer.SetFloat(ParamName, Mathf.Lerp(-DuckValue, 0, distval));
         }
     }
 
@@ -61,7 +62,7 @@ public class Volume2D : MonoBehaviour
         audioSourceRadio.Stop();
         Debug.Log("stop");
         audioSourceRadio.enabled = false;
-        bgMusicMixerGroup.audioMixer.SetFloat("BgMusicVolume", 0); // Restore background music volume when exiting
+        bgMusicMixerGroup.audioMixer.SetFloat(ParamName, 0); // Restore background music volume when exiting
     }
 
     private void OnDrawGizmosSelected()

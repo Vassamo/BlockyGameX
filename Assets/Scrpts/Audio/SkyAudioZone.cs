@@ -4,30 +4,30 @@ using UnityEngine.Audio;
 public class SkyAudioZone : MonoBehaviour
 {
     [System.Serializable]
-    public class AudioPointY
+    public class SkyFilterAudioPoint
     {
         public float y1;
         public float y2;
-        public AudioSource[] audioSources;
         public float EndingVolumeDB;
         public float EndingFilter;
-
     }
 
-    public AudioPointY[] pointsY;
+    public SkyFilterAudioPoint[] pointsY;
     public Transform playerTransform;
     public AudioMixerGroup MusicBgMixer;
-    private float initVol;
-    private float initHighFiler;
+    private float initVol = 0f;
+    private float initHighFiler = 0f;
 
     private float currentT = 0f; // Aktualna wartość t
     private float targetT = 0f; // Docelowa wartość t
     private float speedMultiplier = 1.5f;
+    private string ParamName = "SkyVolume";
+    private string ParamName2 = "BgHighPass";
 
     private void Start()
     {
-        MusicBgMixer.audioMixer.GetFloat("BgMusicVolume", out initVol);
-        MusicBgMixer.audioMixer.GetFloat("BGHighPass", out initHighFiler);
+        //MusicBgMixer.audioMixer.GetFloat("BgMusicVolume", out initVol);
+        //MusicBgMixer.audioMixer.GetFloat("BGHighPass", out initHighFiler);
     }
 
     private void Update()
@@ -44,8 +44,8 @@ public class SkyAudioZone : MonoBehaviour
             float currentVolume = Mathf.Lerp(initVol, -point.EndingVolumeDB, currentT);
             float currentFiler = Mathf.Lerp(initHighFiler, point.EndingFilter, currentT);
 
-            MusicBgMixer.audioMixer.SetFloat("BgMusicVolume", currentVolume);
-            MusicBgMixer.audioMixer.SetFloat("BGHighPass", currentFiler);
+            MusicBgMixer.audioMixer.SetFloat(ParamName, currentVolume);
+            MusicBgMixer.audioMixer.SetFloat(ParamName2, currentFiler);
         }
     }
 
@@ -60,6 +60,12 @@ public class SkyAudioZone : MonoBehaviour
             Gizmos.DrawLine(new Vector3(-1000, point.y1, 0), new Vector3(1000, point.y1, 0)); // Pozioma linia na y1
             Gizmos.DrawLine(new Vector3(-1000, point.y2, 0), new Vector3(1000, point.y2, 0)); // Pozioma linia na y2
         }
+    }
+
+    public float GetCurrentT()
+    {
+        Debug.Log(currentT);
+        return currentT;
     }
 
 }
