@@ -1540,14 +1540,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 671426136}
   moveSpeed: 8
-  jumpForce: 7
-  feetPos: {fileID: 549340624}
-  checkRadius: 0.13
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  jumpStartTime: 0.2
-  fallmultipier: 3
+  moveInput: 0
+  slideSpeedInt: 15.5
+  slideDuration: 0.29
+  slideCooldown: 0.07
+  slideDeceleration: 35.21
 --- !u!224 &671426140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1589,6 +1586,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  anim: {fileID: 0}
 --- !u!81 &671426144
 AudioListener:
   m_ObjectHideFlags: 0
@@ -69123,7 +69121,7 @@ Tilemap:
       - {fileID: 21300000, guid: bd72032a0b65ff54f9d1268a39c1bec9, type: 3}
       - {fileID: 21300000, guid: 1b610eeee61fe494c8f0cc4988207ec0, type: 3}
       - {fileID: 21300000, guid: 7b0cad558bf61134a880089242816787, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 16, y: -3, z: 0}

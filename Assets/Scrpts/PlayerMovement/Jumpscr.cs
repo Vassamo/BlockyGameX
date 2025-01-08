@@ -19,7 +19,9 @@ public class Jumpscr : MonoBehaviour
     bool isJumping;
     float jumpCounter;
 
-    Animator anim;
+    public Animator anim;
+    private PlayerMovement PlayerMovement;
+    float MoveSpeedInt;
 
 
     void Start()
@@ -27,6 +29,8 @@ public class Jumpscr : MonoBehaviour
         vecgravity = new Vector2(0, -Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        PlayerMovement = GetComponent<PlayerMovement>();
+        MoveSpeedInt = PlayerMovement.moveSpeed;
     }
 
     // Update is called once per frame
@@ -91,11 +95,31 @@ public class Jumpscr : MonoBehaviour
             rb.velocity -= vecgravity * fallmultipier * Time.deltaTime;
             if(isGrounded()) anim.SetBool("jumbool", false);
         }
+
+        //CrouchSystem();
     }
-    bool isGrounded()
+    public bool isGrounded()
     {
         return Physics2D.OverlapCapsule(groundcheck.position, new Vector2(0.5f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
     }
 
-
+/*    void CrouchSystem()
+    {
+        if (isGrounded()) 
+        {
+            //Debug.Log("ICantBreathe!");
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                anim.SetBool("isCrouch", true);
+                rb.velocity = new Vector2(800, 1);
+                //PlayerMovement.moveSpeed = 0f;
+            }
+            else
+            {
+                anim.SetBool("isCrouch", false);
+                //PlayerMovement.moveSpeed = MoveSpeedInt;
+            }
+        }
+        
+    }*/
 }
