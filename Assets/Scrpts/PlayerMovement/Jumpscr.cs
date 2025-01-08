@@ -33,7 +33,6 @@ public class Jumpscr : MonoBehaviour
         MoveSpeedInt = PlayerMovement.moveSpeed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) 
@@ -96,30 +95,9 @@ public class Jumpscr : MonoBehaviour
             if(isGrounded()) anim.SetBool("jumbool", false);
         }
 
-        //CrouchSystem();
     }
     public bool isGrounded()
     {
         return Physics2D.OverlapCapsule(groundcheck.position, new Vector2(0.5f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
     }
-
-/*    void CrouchSystem()
-    {
-        if (isGrounded()) 
-        {
-            //Debug.Log("ICantBreathe!");
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            {
-                anim.SetBool("isCrouch", true);
-                rb.velocity = new Vector2(800, 1);
-                //PlayerMovement.moveSpeed = 0f;
-            }
-            else
-            {
-                anim.SetBool("isCrouch", false);
-                //PlayerMovement.moveSpeed = MoveSpeedInt;
-            }
-        }
-        
-    }*/
 }

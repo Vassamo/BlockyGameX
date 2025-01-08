@@ -8,17 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float moveInput;
 
-    /*    public float jumpForce;
-        private bool isGrounded;
-        public Transform feetPos;
-        public float checkRadius;
-        public LayerMask whatIsGround;
-        public float jumpStartTime;
-        private float jumpTime;
-        private bool isJumping;
-        [SerializeField] float fallmultipier;
-        Vector2 vecgravity;*/
-
     public float slideSpeedInt; // Prêdkoœæ wœlizgu
     public float slideDuration; // Czas trwania wœlizgu
     public float slideCooldown; // Czas odnowienia wœlizgu
@@ -32,23 +21,18 @@ public class PlayerMovement : MonoBehaviour
 
     private Jumpscr jumpscr;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         jumpscr = GetComponent<Jumpscr>();
-        //vecgravity = new Vector2(0, -Physics2D.gravity.y);
     }
 
     // Update is called once per frame
     void Update()
     {
         moveInput = Input.GetAxis("Horizontal");
-        FaceMoveDirection();
-        //Jump();
-        //Debug.Log(moveInput);
+        //FaceMoveDirection(); //jak bdziesz obracanie robil wizualnie
 
         if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
     && Time.time >= lastSlideTime + slideCooldown && jumpscr.isGrounded())
@@ -117,47 +101,6 @@ public class PlayerMovement : MonoBehaviour
             slideSpeed = 0f;
         jumpscr.anim.SetBool("isCrouch", true);
     }
-    /*    void Jump()
-        {
-
-
-            if (IsGrounded() && Input.GetButtonDown("Jump"))
-            {
-
-                isJumping = true;
-                jumpTime = jumpStartTime;
-                rb.velocity = Vector2.up * jumpForce;
-            }
-
-            if (Input.GetButton("Jump") && isJumping == true)
-            {
-                if (jumpTime > 0)
-                {
-                    rb.velocity = Vector2.up * jumpForce;
-
-                    jumpTime -= Time.deltaTime;
-                }
-                else
-                {
-                    isJumping = false;
-                }
-            }
-
-            if (Input.GetButtonUp("Jump"))
-            {
-                isJumping = false;
-            }
-
-            if (rb.velocity.y < 0)
-            {
-                rb.velocity -= vecgravity * fallmultipier * Time.deltaTime;
-            }
-        }*/
-
-    /*   bool IsGrounded()
-       {
-           return Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-       }*/
 
     void FaceMoveDirection()
     {
@@ -177,9 +120,4 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(0, rb.velocity.y); // Przywróæ normaln¹ prêdkoœæ w osi Y
         jumpscr.anim.SetBool("isCrouch", false);
     }
-
-    /*    void OnDrawGizmos()
-        {
-            Gizmos.DrawWireSphere(feetPos.position, checkRadius);
-        }*/
 }

@@ -9,7 +9,6 @@ public class FeetKiller : MonoBehaviour
 
     private void Start()
     {
-        //playerRigBody = GetComponent<Rigidbody2D>();
         feetcol = GetComponent<Collider2D>();
     }
     private void OnTriggerEnter2D(Collider2D other)
