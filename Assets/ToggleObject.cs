@@ -1,0 +1,38 @@
+using UnityEngine;
+
+public class ToggleObject : MonoBehaviour
+{
+    // Referencja do obiektu, który ma byæ w³¹czany/wy³¹czany
+    public GameObject tooltip;
+    public GameObject tooltipsound;
+
+    void Update()
+    {
+        // SprawdŸ, czy klawisz M zosta³ naciœniêty
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            // Zmieñ aktywnoœæ obiektu
+            if (tooltip != null)
+            {
+                tooltip.SetActive(!tooltip.activeSelf);
+            }
+            else
+            {
+                Debug.LogWarning("objectToToggle is not assigned in the inspector.");
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            // Zmieñ aktywnoœæ obiektu
+            if (tooltipsound != null)
+            {
+                tooltipsound.SetActive(!tooltipsound.activeSelf);
+            }
+            else
+            {
+                Debug.LogWarning("objectToToggle is not assigned in the inspector.");
+            }
+        }
+
+    }
+}
