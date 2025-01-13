@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public float slideCooldown; // Czas odnowienia wœlizgu
     public float slideDeceleration;
 
+    public AudioSource SplatSound;
+
     //private Rigidbody2D rb;
     private float slideTime;
     private float lastSlideTime;
@@ -99,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
             slideSpeed = slideSpeedInt;
         else
             slideSpeed = 0f;
+        SplatSound.Play();
         jumpscr.anim.SetBool("isCrouch", true);
     }
 
@@ -118,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isSliding = false;
         rb.velocity = new Vector2(0, rb.velocity.y); // Przywróæ normaln¹ prêdkoœæ w osi Y
+        SplatSound.Stop();
         jumpscr.anim.SetBool("isCrouch", false);
     }
 }

@@ -13,6 +13,9 @@ public class Abilities : MonoBehaviour
     private bool isEndingSlowMotion = false;
 
     public AudioMixer MasterMixer;
+
+    public AudioSource StopIn;
+    public AudioSource StopOut;
     
 
     private void Start()
@@ -50,6 +53,7 @@ public class Abilities : MonoBehaviour
                 // Rozpoczêcie zakoñczenia spowolnienia
                 isSlowMotionActive = false;
                 isEndingSlowMotion = true;
+                StopOut.Play();
                 transitionTimer = 0f; // Resetujemy timer dla fazy koñcowej
             }
         }
@@ -75,6 +79,7 @@ public class Abilities : MonoBehaviour
     {
         isSlowMotionActive = true;
         transitionTimer = 0f; // Resetujemy timer na start
+        StopIn.Play();
     }
 
     private void EndSlowMotion()

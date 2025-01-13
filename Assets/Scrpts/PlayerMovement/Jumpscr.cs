@@ -5,11 +5,12 @@ public class Jumpscr : MonoBehaviour
     Rigidbody2D rb;
     [Header("Jump system")]
     [SerializeField] float jumptime;
-    [SerializeField] int jumppower;
+    [SerializeField] int jumppower = 2;
     [SerializeField] float fallmultipier;
     [SerializeField] float jumpMultiplier;
 
     public AudioSource playjump;
+    public AudioSource PlayMegaJump;
 
     public Transform groundcheck;
     public LayerMask groundLayer;
@@ -36,15 +37,21 @@ public class Jumpscr : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) 
-        {rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 37f);}
-
-
-        if (Input.GetButtonDown(jumpSTR) && isGrounded())
         {
-            playjump.Play();
-            rb.velocity = new Vector2(rb.velocity.x, jumppower);
-            isJumping = true;
-            jumpCounter = 0;
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 37f);
+            PlayMegaJump.Play();
+        }
+
+
+        if (Input.GetButtonDown(jumpSTR) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (isGrounded())
+            {
+                playjump.Play();
+                rb.velocity = new Vector2(rb.velocity.x, jumppower);
+                isJumping = true;
+                jumpCounter = 0;
+            }
         }
 
         if (rb.velocity.y > 0 && isJumping)
@@ -77,7 +84,7 @@ public class Jumpscr : MonoBehaviour
         }
 
 
-        if (Input.GetButtonUp(jumpSTR))
+        if (Input.GetButtonUp(jumpSTR) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
         {
             isJumping = false;
             jumpCounter = 0;
