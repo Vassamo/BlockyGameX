@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -15,6 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource SplatSound;
 
+    public AudioSource WalkingSound; 
+    public float fadeDuration = 0.5f; 
+    public float walkingVolume = 1.0f; 
+
     //private Rigidbody2D rb;
     private float slideTime;
     private float lastSlideTime;
@@ -22,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     private float slideSpeed;
 
     private Jumpscr jumpscr;
+
+    private bool isWalking = false;
+    private Coroutine fadeCoroutine;
 
     void Start()
     {
@@ -34,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveInput = Input.GetAxis("Horizontal");
+        
         //FaceMoveDirection(); //jak bdziesz obracanie robil wizualnie
 
         if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
@@ -46,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
         {
             StopSlide();
         }
+
+        WalkerIfs();
     }
 
     void FixedUpdate()
@@ -104,6 +115,75 @@ public class PlayerMovement : MonoBehaviour
         SplatSound.Play();
         jumpscr.anim.SetBool("isCrouch", true);
     }
+    void StopSlide()
+    {
+        isSliding = false;
+        rb.velocity = new Vector2(0, rb.velocity.y); // Przywróæ normaln¹ prêdkoœæ w osi Y
+        SplatSound.Stop();
+        jumpscr.anim.SetBool("isCrouch", false);
+    }
+    private bool IsMoving()
+    {
+        
+        return Mathf.Abs(moveInput) > 0.1f; // U¿ywamy progu, aby unikn¹æ fa³szywych pozytywnych wyników
+    }
+
+    void WalkerIfs()
+    {
+        if (IsMoving() && jumpscr.isGrounded() && !isSliding)
+        {
+            if (!isWalking)
+            {
+                // Jeœli dŸwiêk jest w trakcie fade-out, zatrzymaj go i rozpocznij fade-in
+                if (fadeCoroutine != null)
+                {
+                    StopCoroutine(fadeCoroutine);
+                }
+                fadeCoroutine = StartCoroutine(PlayWalkingSound());
+            }
+        }
+        else
+        {
+            if (isWalking)
+            {
+                // Jeœli dŸwiêk jest w trakcie fade-in, zatrzymaj go i rozpocznij fade-out
+                if (fadeCoroutine != null)
+                {
+                    StopCoroutine(fadeCoroutine);
+                }
+                fadeCoroutine = StartCoroutine(StopWalkingSound());
+            }
+        }
+    }
+    private IEnumerator PlayWalkingSound()
+    {
+        isWalking = true;
+        WalkingSound.volume = 0f; // Ustaw g³oœnoœæ na 0
+        WalkingSound.Play(); // Rozpocznij odtwarzanie dŸwiêku
+
+        // Fade-in
+        while (WalkingSound.volume < walkingVolume)
+        {
+            WalkingSound.volume += Time.deltaTime / fadeDuration;
+            yield return null; // Czekaj na nastêpn¹ klatkê
+        }
+
+        WalkingSound.volume = walkingVolume; // Ustaw g³oœnoœæ na docelow¹
+    }
+
+    private IEnumerator StopWalkingSound()
+    {
+        // Fade-out
+        while (WalkingSound.volume > 0f)
+        {
+            WalkingSound.volume -= Time.deltaTime / fadeDuration;
+            yield return null; // Czekaj na nastêpna klatkê
+        }
+
+        WalkingSound.Stop(); // Zatrzymaj odtwarzanie dŸwiêku
+        WalkingSound.volume = 1f; // Przywróæ g³oœnoœæ do domyœlnej wartoœci
+        isWalking = false;
+    }
 
     void FaceMoveDirection()
     {
@@ -117,11 +197,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void StopSlide()
-    {
-        isSliding = false;
-        rb.velocity = new Vector2(0, rb.velocity.y); // Przywróæ normaln¹ prêdkoœæ w osi Y
-        SplatSound.Stop();
-        jumpscr.anim.SetBool("isCrouch", false);
-    }
 }
