@@ -21,8 +21,8 @@ public class Jumpscr : MonoBehaviour
     float jumpCounter;
 
     public Animator anim;
-    private PlayerMovement PlayerMovement;
-    float MoveSpeedInt;
+    //private PlayerMovement PlayerMovement;
+    //float MoveSpeedInt;
 
 
     void Start()
@@ -30,13 +30,13 @@ public class Jumpscr : MonoBehaviour
         vecgravity = new Vector2(0, -Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        PlayerMovement = GetComponent<PlayerMovement>();
-        MoveSpeedInt = PlayerMovement.moveSpeed;
+        //PlayerMovement = GetComponent<PlayerMovement>();
+        //MoveSpeedInt = PlayerMovement.moveSpeed;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) 
+        if (Input.GetKeyDown(KeyCode.LeftControl)) 
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 37f);
             PlayMegaJump.Play();
@@ -105,6 +105,12 @@ public class Jumpscr : MonoBehaviour
     }
     public bool isGrounded()
     {
-        return Physics2D.OverlapCapsule(groundcheck.position, new Vector2(0.5f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        return Physics2D.OverlapCapsule(groundcheck.position, new Vector2(0.4f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(groundcheck.position, new Vector2(0.4f, 0.1f)); // U¿ywamy DrawWireCube, aby narysowaæ kapsu³ê
+    }
+
 }
