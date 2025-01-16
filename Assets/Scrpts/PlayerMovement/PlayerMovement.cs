@@ -55,6 +55,10 @@ public class PlayerMovement : MonoBehaviour
         {
             StopSlide();
         }
+        //if (!jumpscr.isGrounded())
+        //{
+        //    SplatSound.Stop();
+        //}
 
         WalkerIfs();
     }

@@ -21,7 +21,7 @@ public class Jumpscr : MonoBehaviour
     float jumpCounter;
 
     public Animator anim;
-    //private PlayerMovement PlayerMovement;
+    private PlayerMovement PlayerMovement;
     //float MoveSpeedInt;
 
 
@@ -30,7 +30,7 @@ public class Jumpscr : MonoBehaviour
         vecgravity = new Vector2(0, -Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        //PlayerMovement = GetComponent<PlayerMovement>();
+        PlayerMovement = GetComponent<PlayerMovement>();
         //MoveSpeedInt = PlayerMovement.moveSpeed;
     }
 
@@ -45,6 +45,8 @@ public class Jumpscr : MonoBehaviour
 
         if (Input.GetButtonDown(jumpSTR) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
+            anim.SetBool("spacejump", true);
+            PlayerMovement.SplatSound.Stop();
             if (isGrounded())
             {
                 playjump.Play();
@@ -53,6 +55,7 @@ public class Jumpscr : MonoBehaviour
                 jumpCounter = 0;
             }
         }
+            
 
         if (rb.velocity.y > 0 && isJumping)
         {
@@ -81,6 +84,7 @@ public class Jumpscr : MonoBehaviour
         {
             anim.ResetTrigger("blob");
             anim.SetInteger("fallY", 0);
+            anim.SetBool("jumbool", false);
         }
 
 
@@ -88,6 +92,7 @@ public class Jumpscr : MonoBehaviour
         {
             isJumping = false;
             jumpCounter = 0;
+            anim.SetBool("spacejump", false);
 
             if (rb.velocity.y > 0)
             {
@@ -96,10 +101,11 @@ public class Jumpscr : MonoBehaviour
                 
         }
 
+
         if (rb.velocity.y < 0)
         {
             rb.velocity -= vecgravity * fallmultipier * Time.deltaTime;
-            if(isGrounded()) anim.SetBool("jumbool", false);
+            //if(isGrounded()) anim.SetBool("jumbool", false);
         }
 
     }
