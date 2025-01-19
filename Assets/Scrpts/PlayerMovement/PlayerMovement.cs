@@ -43,8 +43,6 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         jumpscr = GetComponent<Jumpscr>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         moveInput = Input.GetAxis("Horizontal");
@@ -201,29 +199,21 @@ public class PlayerMovement : MonoBehaviour
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.CompareTag("grass"))
-            {
-                //Debug.Log("grassss");
-                
+            {   
                 WalkingSound.clip = WalkingSoundGrass;
                 return; // Zakoñcz, jeœli znaleziono tag
             }
             else if (hitCollider.CompareTag("stone"))
-            {
-                //Debug.Log("ston");
-                
+            {   
                 WalkingSound.clip = WalkingSoundStone;
                 return; // Zakoñcz, jeœli znaleziono tag
             }
             else if (hitCollider.CompareTag("wood"))
             {
-                //Debug.Log("gls");
-                
                 WalkingSound.clip = WalkingSoundWood;
                 return; // Zakoñcz, jeœli znaleziono tag
             }
         }
-
-        // Jeœli nie znaleziono ¿adnego tagu, mo¿esz ustawiæ domyœlny dŸwiêk lub nic nie robiæ
     }
 
     void FaceMoveDirection()
