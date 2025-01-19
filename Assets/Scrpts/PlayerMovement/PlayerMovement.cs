@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,7 +17,12 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource SplatSound;
 
-    public AudioSource WalkingSound; 
+    public AudioSource WalkingSound;
+    
+    public AudioClip WalkingSoundGrass; 
+    public AudioClip WalkingSoundStone; 
+    public AudioClip WalkingSoundWood;
+
     public float fadeDuration = 0.5f; 
     public float walkingVolume = 1.0f; 
 
@@ -55,10 +61,6 @@ public class PlayerMovement : MonoBehaviour
         {
             StopSlide();
         }
-        //if (!jumpscr.isGrounded())
-        //{
-        //    SplatSound.Stop();
-        //}
 
         WalkerIfs();
     }
@@ -162,8 +164,11 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator PlayWalkingSound()
     {
         isWalking = true;
+        CheckSurface();
+        //WalkingMixer.SetFloat("", 0f);
         WalkingSound.volume = 0f; // Ustaw g³oœnoœæ na 0
         WalkingSound.Play(); // Rozpocznij odtwarzanie dŸwiêku
+        
 
         // Fade-in
         while (WalkingSound.volume < walkingVolume)
@@ -187,6 +192,38 @@ public class PlayerMovement : MonoBehaviour
         WalkingSound.Stop(); // Zatrzymaj odtwarzanie dŸwiêku
         WalkingSound.volume = 1f; // Przywróæ g³oœnoœæ do domyœlnej wartoœci
         isWalking = false;
+    }
+
+    void CheckSurface()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(jumpscr.groundcheck.position, 0.1f);
+
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("grass"))
+            {
+                //Debug.Log("grassss");
+                
+                WalkingSound.clip = WalkingSoundGrass;
+                return; // Zakoñcz, jeœli znaleziono tag
+            }
+            else if (hitCollider.CompareTag("stone"))
+            {
+                //Debug.Log("ston");
+                
+                WalkingSound.clip = WalkingSoundStone;
+                return; // Zakoñcz, jeœli znaleziono tag
+            }
+            else if (hitCollider.CompareTag("wood"))
+            {
+                //Debug.Log("gls");
+                
+                WalkingSound.clip = WalkingSoundWood;
+                return; // Zakoñcz, jeœli znaleziono tag
+            }
+        }
+
+        // Jeœli nie znaleziono ¿adnego tagu, mo¿esz ustawiæ domyœlny dŸwiêk lub nic nie robiæ
     }
 
     void FaceMoveDirection()
