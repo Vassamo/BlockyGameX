@@ -4,7 +4,8 @@ public class ToggleObject : MonoBehaviour
 {
     // Referencja do obiektu, który ma byæ w³¹czany/wy³¹czany
     public GameObject tooltip;
-    public GameObject tooltipsound;
+    public GameObject tooltip2;
+    public AudioSource NotifyMute;
 
     void Update()
     {
@@ -24,14 +25,22 @@ public class ToggleObject : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
         {
             // Zmieñ aktywnoœæ obiektu
-            if (tooltipsound != null)
+            if (tooltip2 != null)
             {
-                tooltipsound.SetActive(!tooltipsound.activeSelf);
+                tooltip2.SetActive(!tooltip2.activeSelf);
             }
             else
             {
                 Debug.LogWarning("objectToToggle is not assigned in the inspector.");
             }
+        }
+        if (!tooltip.activeSelf && !tooltip2.activeSelf)
+        {
+            NotifyMute.mute = true;
+        }
+        else
+        {
+            NotifyMute.mute = false;
         }
 
     }

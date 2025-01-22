@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class EnemyKillPlayer : MonoBehaviour
 {
-    private Collider2D killerRange;
+    //private Collider2D killerRange;
     public AudioSource playerDeath;
     public AudioMixerGroup allmusic;
     float liczbaSekund = 4f;
     float startBgMusicVol;
     void Start()
     {
-        killerRange = GetComponent<Collider2D>();
+        //killerRange = GetComponent<Collider2D>();
         allmusic.audioMixer.GetFloat("BgMusicVolume", out startBgMusicVol);
     }
 
@@ -20,14 +20,19 @@ public class EnemyKillPlayer : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("przegrales :(");
-            playerDeath.Play();
-            allmusic.audioMixer.SetFloat("BgMusicVolume",-19);
-            StartCoroutine(PrzykładKorutyny());
+            PlayerDeath();
         }
     }
 
-    IEnumerator PrzykładKorutyny()
+    public void PlayerDeath()
+    {
+        Debug.Log("przegrales :(");
+        playerDeath.Play();
+        allmusic.audioMixer.SetFloat("BgMusicVolume", -19);
+        StartCoroutine(KoniecKorutyny());
+    }
+
+    IEnumerator KoniecKorutyny()
     {
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(liczbaSekund);

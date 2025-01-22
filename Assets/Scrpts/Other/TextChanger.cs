@@ -4,23 +4,21 @@ using TMPro; // Upewnij siê, ¿e dodajesz ten namespace
 public class TextChanger : MonoBehaviour
 {
     public TextMeshProUGUI textComponent; 
-    public TextMeshProUGUI textComponent2; 
+    public TextMeshProUGUI textComponent2;
+    public AudioSource notify;
 
     [TextArea(3, 10)] 
     public string newText; 
     [TextArea(3, 10)] 
     public string newText2;
 
-    //private void Start()
-    //{
-    //    //if (newText2 == null) newText2 = "";
-    //}
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             // Zmieñ tekst
+            if (notify != null)
+            notify.Play();
             textComponent.text = newText;
             textComponent2.text = newText2;
 
@@ -31,6 +29,8 @@ public class TextChanger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (notify != null)
+            notify.Stop();
             textComponent.text = "";
             textComponent2.text = "";
         }
