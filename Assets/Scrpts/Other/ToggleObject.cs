@@ -34,14 +34,10 @@ public class ToggleObject : MonoBehaviour
                 Debug.LogWarning("objectToToggle is not assigned in the inspector.");
             }
         }
-        if (!tooltip.activeSelf && !tooltip2.activeSelf)
-        {
+        if (!tooltip2.activeSelf)
             NotifyMute.mute = true;
-        }
         else
-        {
             NotifyMute.mute = false;
-        }
 
     }
 }
