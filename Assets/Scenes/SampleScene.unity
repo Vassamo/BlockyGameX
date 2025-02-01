@@ -3714,8 +3714,8 @@ MonoBehaviour:
   SplatSound: {fileID: 416198031}
   WalkingSound: {fileID: 1756943227}
   WalkingSoundGrass: {fileID: 8300000, guid: 55913aef961f23c49a869d284906a1b7, type: 3}
-  WalkingSoundStone: {fileID: 8300000, guid: fb36c93c054db2e4499bdbe3aefdd7ef, type: 3}
-  WalkingSoundWood: {fileID: 8300000, guid: b819a219a5c8a654287ffe7d4153baf9, type: 3}
+  WalkingSoundStone: {fileID: 0}
+  WalkingSoundWood: {fileID: 0}
   fadeDuration: 0.2
   walkingVolume: 1
 --- !u!224 &671426140

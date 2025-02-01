@@ -46,10 +46,10 @@ public class Jumpscr : MonoBehaviour
         if (Input.GetButtonDown(jumpSTR) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             anim.SetBool("spacejump", true);
-            PlayerMovement.SplatSound.Stop();
             if (isGrounded())
             {
-                playjump.Play();
+                PlayerMovement.SplatSound.Stop(); //zakonczenie dzwieku wslizgu
+                playjump.Play(); //odtworzenie dzwieku skoku
                 rb.velocity = new Vector2(rb.velocity.x, jumppower);
                 isJumping = true;
                 jumpCounter = 0;
