@@ -43,7 +43,8 @@ public class Jumpscr : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown(jumpSTR) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetButtonDown(jumpSTR) || Input.GetKeyDown(KeyCode.W) 
+            || Input.GetKeyDown(KeyCode.UpArrow))
         {
             anim.SetBool("spacejump", true);
             if (isGrounded())

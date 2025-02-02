@@ -1,4 +1,4 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.Audio;
 
 public class Abilities : MonoBehaviour
@@ -6,8 +6,8 @@ public class Abilities : MonoBehaviour
     private bool isSlowMotionActive = false;
     private float originalTimeScale;
     private float targetTimeScale = 0.3f;
-    public float slowMotionDuration = 3f; // Okreúla czas trwania faktycznego spowolnienia
-    public float transitionDuration = 1f; // Czas przejúcia do i z spowolnienia
+    public float slowMotionDuration = 3f; // Okre≈ìla czas trwania faktycznego spowolnienia
+    public float transitionDuration = 1f; // Czas przej≈ìcia do i z spowolnienia
     public int FilterValue = 1000;
     private float transitionTimer = 0f;
     private bool isEndingSlowMotion = false;
@@ -21,7 +21,7 @@ public class Abilities : MonoBehaviour
     private void Start()
     {
         originalTimeScale = Time.timeScale;
-        MasterMixer.SetFloat("MasterFilter", 20000); // Ustawienie poczπtkowej wartoúci filtra na 20000
+        MasterMixer.SetFloat("MasterFilter", 20000);
     }
 
     private void Update()
@@ -35,26 +35,27 @@ public class Abilities : MonoBehaviour
         {
             if (transitionTimer < transitionDuration)
             {
-                // Interpolacja do spowolnienia
                 float t = transitionTimer / transitionDuration;
+                //Zmienianie linearne warto≈õci filtru
                 MasterMixer.SetFloat("MasterFilter", Mathf.Lerp(20000, FilterValue, t));
                 Time.timeScale = Mathf.Lerp(originalTimeScale, targetTimeScale, t);
                 transitionTimer += Time.unscaledDeltaTime;
             }
-            else if (transitionTimer >= transitionDuration && transitionTimer < transitionDuration + slowMotionDuration)
-            {
-                // Utrzymywanie spowolnienia
+            else if (transitionTimer >= transitionDuration && transitionTimer 
+                < transitionDuration + slowMotionDuration)
+            {// Utrzymywanie spowolnienia
+
                 Time.timeScale = targetTimeScale;
+                //Utrzymywanie wartosci filtru
                 MasterMixer.SetFloat("MasterFilter", FilterValue);
                 transitionTimer += Time.unscaledDeltaTime;
             }
             else
-            {
-                // RozpoczÍcie zakoÒczenia spowolnienia
+            {// Rozpoczecie zakonczenia spowolnienia
                 isSlowMotionActive = false;
                 isEndingSlowMotion = true;
                 StopOut.Play();
-                transitionTimer = 0f; // Resetujemy timer dla fazy koÒcowej
+                transitionTimer = 0f;
             }
         }
 
@@ -62,7 +63,7 @@ public class Abilities : MonoBehaviour
         {
             if (transitionTimer < transitionDuration)
             {
-                // Interpolacja powrotu do normalnej prÍdkoúci
+                // powrot do poczatkowych wartosci
                 float t = transitionTimer / transitionDuration;
                 MasterMixer.SetFloat("MasterFilter", Mathf.Lerp(FilterValue, 20000, t));
                 Time.timeScale = Mathf.Lerp(targetTimeScale, originalTimeScale, t);
@@ -78,15 +79,17 @@ public class Abilities : MonoBehaviour
     private void StartSlowMotion()
     {
         isSlowMotionActive = true;
-        transitionTimer = 0f; // Resetujemy timer na start
-        StopIn.Play();
+        transitionTimer = 0f;
+        StopIn.Play(); //dzwiek rozpoczynajacy spowolnienie
     }
 
     private void EndSlowMotion()
     {
-        Time.timeScale = originalTimeScale; // PowrÛt do oryginalnej skali czasu
-        MasterMixer.SetFloat("MasterFilter", 20000); // PowrÛt do oryginalnej wartoúci filtra
+        // oryginalna skala czasu
+        Time.timeScale = originalTimeScale;
+        // Powrot do oryginalnej wartosci filtra
+        MasterMixer.SetFloat("MasterFilter", 20000); 
         isEndingSlowMotion = false;
-        transitionTimer = 0f; // Resetowanie timera
+        transitionTimer = 0f;
     }
 }

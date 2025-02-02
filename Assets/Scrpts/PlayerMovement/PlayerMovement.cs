@@ -46,13 +46,16 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = Input.GetAxis("Horizontal");
 
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-    && jumpscr.isGrounded())
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.S) 
+            || Input.GetKeyDown(KeyCode.DownArrow))
+            && jumpscr.isGrounded())
         {
             StartSlide();
         }
 
-        if (isSliding && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.DownArrow))
+        if (isSliding && !Input.GetKey(KeyCode.LeftShift) 
+            && !Input.GetKey(KeyCode.S) 
+            && !Input.GetKey(KeyCode.DownArrow))
         {
             StopSlide();
         }

@@ -16,12 +16,10 @@ public class TextChanger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Zmieñ tekst
             if (notify != null)
-            notify.Play();
+            notify.Play(); //dzwiek wzkazowki
             textComponent.text = newText;
             textComponent2.text = newText2;
-
         }
     }
 
@@ -30,7 +28,7 @@ public class TextChanger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             if (notify != null)
-            notify.Stop();
+            notify.Stop();//zatrzymanie dzwieku
             textComponent.text = "";
             textComponent2.text = "";
         }
