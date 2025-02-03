@@ -3099,8 +3099,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - x1: 4.89
-    x2: 10.13
+  - x1: 5
+    x2: 10
     source1: {fileID: 1366977874}
     source2: {fileID: 1163001684}
   playerTransform: {fileID: 671426140}
@@ -3352,7 +3352,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.24857603, g: 0.3584906, b: 0.301335, a: 1}
+  m_Color: {r: 0.26309004, g: 0.4113207, b: 0.28863946, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3371,7 +3371,7 @@ Transform:
   m_GameObject: {fileID: 639812970}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 148.9, y: 9.867363, z: 22.804182}
+  m_LocalPosition: {x: 149.04, y: 9.867363, z: 22.804182}
   m_LocalScale: {x: 272.3, y: 33.84, z: 33.84}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3900,7 +3900,7 @@ Transform:
   m_GameObject: {fileID: 686079338}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.87, y: 9.867363, z: 22.804182}
+  m_LocalPosition: {x: -23.75, y: 9.867363, z: 22.804182}
   m_LocalScale: {x: 63.3, y: 38.3, z: 33.84}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82927,7 +82927,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.22174263, g: 0.31132078, b: 0.27831832, a: 1}
+  m_Color: {r: 0.25906017, g: 0.3584906, b: 0.32233408, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82947,7 +82947,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10.379971, y: 9.867363, z: 22.804182}
-  m_LocalScale: {x: 5.35, y: 33.84, z: 33.84}
+  m_LocalScale: {x: 5, y: 33.84, z: 33.84}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 343037532}
@@ -84766,7 +84766,7 @@ Tilemap:
       - {fileID: 21300000, guid: bd72032a0b65ff54f9d1268a39c1bec9, type: 3}
       - {fileID: 21300000, guid: 1b610eeee61fe494c8f0cc4988207ec0, type: 3}
       - {fileID: 21300000, guid: 7b0cad558bf61134a880089242816787, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 22, y: -3, z: 0}

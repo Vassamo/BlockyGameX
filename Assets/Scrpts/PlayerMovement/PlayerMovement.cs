@@ -160,6 +160,8 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator PlayWalkingSound()
     {
         isWalking = true;
+
+        //zmiana dzwieku podloza
         CheckSurface();
         WalkingSound.volume = 0f;
         WalkingSound.Play();
@@ -195,17 +197,17 @@ public class PlayerMovement : MonoBehaviour
             if (hitCollider.CompareTag("grass"))
             {   
                 WalkingSound.clip = WalkingSoundGrass;
-                return; // Zakoñcz, jeœli znaleziono tag
+                return; 
             }
             else if (hitCollider.CompareTag("stone"))
             {   
                 WalkingSound.clip = WalkingSoundStone;
-                return; // Zakoñcz, jeœli znaleziono tag
+                return; 
             }
             else if (hitCollider.CompareTag("wood"))
             {
                 WalkingSound.clip = WalkingSoundWood;
-                return; // Zakoñcz, jeœli znaleziono tag
+                return;
             }
         }
     }

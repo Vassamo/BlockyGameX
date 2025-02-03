@@ -32,7 +32,8 @@ public class AudioZone : MonoBehaviour
             }
             else
             {
-                float t = (playerX - point.x1) / (point.x2 - point.x1);
+                float t = (playerX - point.x1) 
+                    / (point.x2 - point.x1);
                 point.source1.volume = 1 - t;
                 point.source2.volume = t;
             }
