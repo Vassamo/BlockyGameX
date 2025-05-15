@@ -2742,7 +2742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &551834879
 Transform:
   m_ObjectHideFlags: 0
@@ -3425,8 +3425,8 @@ MonoBehaviour:
   textComponent: {fileID: 868066823}
   textComponent2: {fileID: 24978224}
   notify: {fileID: 0}
-  newText: AWSD or Arrows to move
-  newText2: 
+  newText: "przytrzymaj klawisze AD lub strzalki w \nprawo lub lewo, aby sie poruszac"
+  newText2: AWSD or Arrows to move
 --- !u!61 &659216115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3714,8 +3714,8 @@ MonoBehaviour:
   SplatSound: {fileID: 416198031}
   WalkingSound: {fileID: 1756943227}
   WalkingSoundGrass: {fileID: 8300000, guid: 55913aef961f23c49a869d284906a1b7, type: 3}
-  WalkingSoundStone: {fileID: 0}
-  WalkingSoundWood: {fileID: 0}
+  WalkingSoundStone: {fileID: 8300000, guid: b819a219a5c8a654287ffe7d4153baf9, type: 3}
+  WalkingSoundWood: {fileID: 8300000, guid: fb36c93c054db2e4499bdbe3aefdd7ef, type: 3}
   fadeDuration: 0.2
   walkingVolume: 1
 --- !u!224 &671426140
@@ -3736,7 +3736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -44.58, y: -6.07}
+  m_AnchoredPosition: {x: -43.93, y: -7.83}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &671426142
@@ -4186,7 +4186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &857713352
 Transform:
   m_ObjectHideFlags: 0
@@ -84766,7 +84766,7 @@ Tilemap:
       - {fileID: 21300000, guid: bd72032a0b65ff54f9d1268a39c1bec9, type: 3}
       - {fileID: 21300000, guid: 1b610eeee61fe494c8f0cc4988207ec0, type: 3}
       - {fileID: 21300000, guid: 7b0cad558bf61134a880089242816787, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 22, y: -3, z: 0}
@@ -87370,7 +87370,7 @@ MonoBehaviour:
   textComponent: {fileID: 868066823}
   textComponent2: {fileID: 24978224}
   notify: {fileID: 250161947}
-  newText: Press "E" to interact
+  newText: Wcisnij "E", aby dokonac interakcji
   newText2: '#2 obiekt
 
     Interakcja gracza z drzwiami odtwarza dzwiek'

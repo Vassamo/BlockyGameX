@@ -7,7 +7,7 @@ public class Volume2D : MonoBehaviour
     public AudioSource audioSourceRadio;
     //public AudioMixerGroup radioMixerGroup;
     public AudioMixerGroup bgMusicMixerGroup;
-    public float DuckValue = 40; 
+    public float DuckValue = 40;
     private CircleCollider2D circleCollider2D;
     public float minDist = 1;
     static float maxDist;
@@ -22,47 +22,49 @@ public class Volume2D : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D gracz)
     {
-        if (audioSourceRadio.isPlaying == false)
+        if (gracz.CompareTag("Player") && 
+            audioSourceRadio.isPlaying == false)
         {
             audioSourceRadio.enabled = true;
             audioSourceRadio.time = Random.Range(1, 30);
             audioSourceRadio.Play();
-            Debug.Log("play");
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        float dist = Vector3.Distance(transform.position, listenerTransform.position);
+        if (collision.CompareTag("Player"))
+        {
+            float dist = Vector3.Distance(transform.position, listenerTransform.position);
 
-        if (dist < minDist)
-        {
-            audioSourceRadio.volume = 1;
-            bgMusicMixerGroup.audioMixer.SetFloat(ParamName, -DuckValue); // Mute background music
-        }
-        else if (dist > maxDist)
-        {
-            audioSourceRadio.volume = 0;
-            bgMusicMixerGroup.audioMixer.SetFloat(ParamName, 0); // Max volume for background music
-        }
-        else
-        {
-            // Calculate distance in the range from minDist to maxDist
-            float rangeDist = Mathf.Clamp(dist, minDist, maxDist) - minDist;
-
-            // Calculate volume value based on the distance in the range from minDist to maxDist
-            float distval = rangeDist / (maxDist - minDist);
-            audioSourceRadio.volume = 1 - distval;
-            bgMusicMixerGroup.audioMixer.SetFloat(ParamName, Mathf.Lerp(-DuckValue, 0, distval));
+            if (dist < minDist)
+            {
+                audioSourceRadio.volume = 1;
+                bgMusicMixerGroup.audioMixer.SetFloat(ParamName, -DuckValue);
+            }
+            else if (dist > maxDist)
+            {
+                audioSourceRadio.volume = 0;
+                bgMusicMixerGroup.audioMixer.SetFloat(ParamName, 0);
+            }
+            else
+            {
+                float rangeDist = Mathf.Clamp(dist, minDist, maxDist) - minDist;                        // Calculate distance in the range from minDist to maxDist
+                float distval = rangeDist / (maxDist - minDist);                                        // Calculate volume value based on the distance in the range from minDist to maxDist
+                audioSourceRadio.volume = 1 - distval;
+                bgMusicMixerGroup.audioMixer.SetFloat(ParamName, Mathf.Lerp(-DuckValue, 0, distval));
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        audioSourceRadio.Stop();
-        Debug.Log("stop");
-        audioSourceRadio.enabled = false;
-        bgMusicMixerGroup.audioMixer.SetFloat(ParamName, 0); // Restore background music volume when exiting
+        if (collision.CompareTag("Player"))
+        {
+            audioSourceRadio.Stop();
+            audioSourceRadio.enabled = false;
+            bgMusicMixerGroup.audioMixer.SetFloat(ParamName, 0);                            // Restore background music volume when exiting
+        }
     }
 
     private void OnDrawGizmosSelected()

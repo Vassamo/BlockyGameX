@@ -7,6 +7,11 @@ public class ToggleObject : MonoBehaviour
     public GameObject tooltip2;
     public AudioSource NotifyMute;
 
+    private void Start()
+    {
+        tooltip.SetActive(false);
+    }
+
     void Update()
     {
         // SprawdŸ, czy klawisz M zosta³ naciœniêty

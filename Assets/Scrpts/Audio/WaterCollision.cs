@@ -14,7 +14,7 @@ public class WaterCollision : MonoBehaviour
     private float intMoveSpeed;
     bool amIUnderWater;
     private PlayerMovement PlayerMovement;
-    private int WaterIDAfter; //jesli zyebala sie dynamiczna muzyka wody to patrz nizej :)
+    private int WaterID; //jesli zyebala sie dynamiczna muzyka wody to patrz nizej :)
 
     void Start()
     {
@@ -23,20 +23,19 @@ public class WaterCollision : MonoBehaviour
         intGravScale = body2D.gravityScale;
         PlayerMovement = GetComponent<PlayerMovement>();
         intMoveSpeed = PlayerMovement.moveSpeed;
-        WaterIDAfter = WaterLayer.value - 12;
+        WaterID = WaterLayer.value - 12;
     }
     private void OnTriggerEnter2D(Collider2D other)
-    {
-        //Debug.Log("x: " + other.gameObject.layer);
-        //Debug.Log("d: "  + WaterIDAfter);           // < bugfixing situation 
-        
-        if (other.gameObject.layer == WaterIDAfter) //bo 4 layer i musze odjac 12 bo hihi thans unity
+    {     
+        if (other.gameObject.layer == WaterID)
         {
             Debug.Log("in");
             body2D.gravityScale = intGravScale / 2;
+            
+            //Nalozenie filtru dolnoprzepustowego
             MasterMusic.audioMixer.SetFloat("MusicFilter", 700);
-            WaterIn.Play();
-            WaterBubbles.Play();
+            WaterIn.Play(); //Wskoczenie do wody
+            WaterBubbles.Play(); //Dzwiek babelkow
             PlayerMovement.moveSpeed = intMoveSpeed / 2;
             
         }
@@ -44,13 +43,15 @@ public class WaterCollision : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         
-        if (other.gameObject.layer == WaterIDAfter)
+        if (other.gameObject.layer == WaterID)
         {
             Debug.Log("out");
             body2D.gravityScale = intGravScale;
+
+            //Przywrocenie poprzednich wartosc filtra
             MasterMusic.audioMixer.SetFloat("MusicFilter", 20000);
-            WaterOut.Play();
-            WaterBubbles.Stop();
+            WaterOut.Play(); //Wyskoczenie z wody
+            WaterBubbles.Stop(); //Zakonczenie babelkow
             PlayerMovement.moveSpeed = intMoveSpeed;
         }
     }
